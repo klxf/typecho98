@@ -1,0 +1,378 @@
+body {
+    background-color: rgb(0, 128, 128);
+    overflow: clip;
+    image-rendering: pixelated;
+    font-family: "SimSun", fangsong;
+}
+
+.window {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 90%;
+    max-height: 90%;
+    background-color: #c0c0c0;
+    border: 2px outset white;
+    box-shadow: inset -1px -1px #0a0a0a, inset 1px 1px #dfdfdf, inset -2px -2px grey, inset 2px 2px #fff;
+    padding: 3px;
+    overflow: hidden;
+}
+
+.title-bar {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    cursor: move;
+    align-items: center;
+    background: linear-gradient(to right, rgb(128, 128, 128) 0%, rgb(181, 181, 181) 100%);
+    padding: 3px 2px 3px 3px;
+}
+
+.window.active .title-bar {
+    background: linear-gradient(90deg, navy, #1084d0);
+}
+
+.window.active {
+    z-index: 100;
+}
+
+.title-bar .title {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.title-bar-controls {
+    display: flex;
+}
+
+.title-bar-controls button {
+    display: block;
+    min-height: 14px;
+    min-width: 16px;
+    padding: 0;
+    border: 2px outset lightgray;
+}
+
+.title-bar-controls button:focus {
+    outline: none;
+}
+
+.title-bar-controls button[aria-label=Minimize] {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='6' height='2' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23000' d='M0 0h6v2H0z'/%3E%3C/svg%3E");
+    background-position: bottom 3px left 4px;
+    background-repeat: no-repeat;
+}
+
+.title-bar-controls button[aria-label=Maximize] {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='9' height='9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M9 0H0v9h9V0zM8 2H1v6h7V2z' fill='%23000'/%3E%3C/svg%3E");
+    background-position: top 1px left 2px;
+    background-repeat: no-repeat;
+}
+
+.title-bar-controls button[aria-label=Restore] {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='8' height='9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23000' d='M2 0h6v2H2zM7 2h1v4H7zM2 2h1v1H2zM6 5h1v1H6zM0 3h6v2H0zM5 5h1v4H5zM0 5h1v4H0zM1 8h4v1H1z'/%3E%3C/svg%3E");
+    background-position: top 2px left 3px;
+    background-repeat: no-repeat;
+}
+
+.title-bar-controls button[aria-label=Help] {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='6' height='9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23000' d='M0 1h2v2H0zM1 0h4v1H1zM4 1h2v2H4zM3 3h2v1H3zM2 4h2v2H2zM2 7h2v2H2z'/%3E%3C/svg%3E");
+    background-position: top 2px left 5px;
+    background-repeat: no-repeat;
+}
+
+.title-bar-controls button[aria-label=Close] {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='8' height='7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 0h2v1h1v1h2V1h1V0h2v1H7v1H6v1H5v1h1v1h1v1H6V6H5V5H3v1H2v1H0V6h1V5h1V4h1V3H2V2H1V1H0V0z' fill='%23000'/%3E%3C/svg%3E");
+    background-position: top 2px left 3px;
+    background-repeat: no-repeat;
+    margin-left: 2px;
+}
+
+.toolbar {
+    display: flex;
+    background-color: #c0c0c0;
+}
+
+.toolbar button {
+    background-color: #c0c0c0;
+    border: 1px outset rgba(0, 0, 0, 0);
+    cursor: default;
+    font-size: 12px;
+    outline: none;
+}
+
+.toolbar button:hover {
+    border: 1px outset #fff;
+}
+
+.toolbar button:active {
+    border-style: inset;
+}
+
+.window .body {
+    max-height: 80vh;
+    border: 2px inset #fff;
+    background: #fff;
+    overflow: auto;
+}
+
+.title .logo {
+    width: 16px;
+    height: 16px;
+    vertical-align: sub;
+    margin-right: 2px;
+}
+
+.window .content {
+    display: flex;
+    word-wrap: break-word;
+    word-break: normal;
+}
+
+.content .panel {
+    margin-right: 10px;
+    width: 30%;
+    background: url("/usr/themes/typecho98/img/panel_left.bmp") no-repeat white;
+}
+
+.content .app {
+    width: 70%;
+    margin: 20px 15px;
+}
+
+.content .panel h1 {
+    font-size: 24px;
+    margin: 15px 0 5px 15px;
+}
+
+.content .panel .hr {
+    display: block;
+    background-image: linear-gradient(to right, red, yellow, green, blue);
+    height: 1px;
+}
+
+.content .panel p {
+    margin-left: 15px;
+    margin-top: 15px;
+    font-size: 12px;
+}
+
+.post-list {
+    font-size: 14px;
+}
+
+.post-title {
+    font-size: 20px;
+}
+
+.post-content {
+    margin-top: 2px;
+}
+
+.post-meta {
+    color: grey;
+    font-size: 12px;
+}
+
+.post-categories {
+    color: grey;
+    font-size: 12px;
+    text-align: right;
+}
+
+.split {
+    display: inline-block;
+    width: 1px;
+    height: 8px;
+    margin: 0 5px;
+    background: grey;
+}
+
+.window#commentsWindow {
+    top: 30%;
+    left: 20%;
+    width: 30%;
+}
+
+form#comment-form {
+    background: #c0c0c0;
+    padding: 5px;
+    font-size: 14px;
+}
+
+button {
+    font-family: "SimSun", fangsong;
+    background-color: #c0c0c0;
+    cursor: pointer;
+    font-size: 12px;
+    outline: none;
+    border-image: url("data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22256px%22%20height%3D%22256px%22%20viewBox%3D%220%200%20256%20256%22%3E%0A%09%09%09%0A%09%09%3Cpath%20d%3D%22M0%200h224v32h-192v192h-32v-224z%22%20fill%3D%22%20rgb(255%2C%20255%2C%20255)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M224%200h32v256h-256v-32h224v-224z%22%20fill%3D%22%20rgb(0%2C%200%2C%200)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M32%2032h160v32h-128v128h-32v-160z%22%20fill%3D%22%20rgb(223%2C%20223%2C%20223)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M192%2032h32v192h-192v-32h160v-160z%22%20fill%3D%22%20rgb(128%2C%20128%2C%20128)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M64%2064h128v128h-128v-128z%22%20fill%3D%22%20rgb(192%2C%20192%2C%20192)%22%2F%3E%0A%09%0A%09%09%3C%2Fsvg%3E") 64 / 2px;
+}
+
+button:active {
+    border-image: url("data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22256px%22%20height%3D%22256px%22%20viewBox%3D%220%200%20256%20256%22%3E%0A%09%09%09%0A%09%09%3Cpath%20d%3D%22M0%200h224v32h-192v192h-32v-224z%22%20fill%3D%22%20rgb(0%2C%200%2C%200)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M224%200h32v256h-256v-32h224v-224z%22%20fill%3D%22%20rgb(255%2C%20255%2C%20255)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M32%2032h160v32h-128v128h-32v-160z%22%20fill%3D%22%20rgb(128%2C%20128%2C%20128)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M192%2032h32v192h-192v-32h160v-160z%22%20fill%3D%22%20rgb(223%2C%20223%2C%20223)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M64%2064h128v128h-128v-128z%22%20fill%3D%22%20rgb(192%2C%20192%2C%20192)%22%2F%3E%0A%09%0A%09%09%3C%2Fsvg%3E") 64 / 2px;
+}
+
+.inset-input {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border-image: url("data:image/svg+xml,%3Csvg%20version%3D%221.1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22256px%22%20height%3D%22256px%22%20viewBox%3D%220%200%20256%20256%22%3E%0A%09%09%09%0A%09%09%3Cpath%20d%3D%22M0%200h224v32h-192v192h-32v-224z%22%20fill%3D%22%20rgb(0%2C%200%2C%200)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M224%200h32v256h-256v-32h224v-224z%22%20fill%3D%22%20rgb(255%2C%20255%2C%20255)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M32%2032h160v32h-128v128h-32v-160z%22%20fill%3D%22%20rgb(128%2C%20128%2C%20128)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M192%2032h32v192h-192v-32h160v-160z%22%20fill%3D%22%20rgb(223%2C%20223%2C%20223)%22%2F%3E%0A%09%09%3Cpath%20d%3D%22M64%2064h128v128h-128v-128z%22%20fill%3D%22%20rgb(192%2C%20192%2C%20192)%22%2F%3E%0A%09%0A%09%09%3C%2Fsvg%3E") 64 / 2px;
+    border-width: 2px 2px;
+    outline: none;
+    width: 50%;
+}
+
+.textarea {
+    width: 95%;
+}
+
+.comments {
+    max-height: 200px;
+    min-height: 100px;
+    overflow: auto;
+    border: 2px inset;
+}
+.comment-list {
+    padding-inline-start: unset;
+    margin-block: unset;
+}
+.comment-body.comment-parent {
+    padding-inline-start: 15px;
+}
+.comment-body {
+    position: relative;
+}
+.comment-reply {
+    position: absolute;
+    right: 0;
+}
+.comment-list li {
+    display: block;
+    margin-top: 20px;
+}
+.comment-author, .comment-meta {
+    white-space: nowrap;
+    overflow-x: clip;
+    text-overflow: ellipsis;
+    color: #999;
+}
+.comment-author .avatar {
+    float: left;
+    margin: 1px 10px 0 0;
+    border: 1px solid #ddd;
+}
+.comment-author cite {
+    font-weight: bold;
+    font-style: normal;
+    color: #000;
+}
+.comment-meta a {
+    color: #999;
+    text-decoration: none;
+    font-size: small;
+}
+
+.comment-content p {
+    margin: unset;
+}
+
+.comment-locked {
+    background: #c0c0c0;
+    margin: 0;
+    padding: 20px;
+    font-size: 18px;
+}
+
+.comment p {
+    font-weight: bold;
+}
+
+.page-navigator li {
+    display: inline;
+    margin: 0 5px;
+}
+
+.page-navigator .current a{
+    color: #999999;
+}
+
+img {
+    max-width: 98%;
+}
+
+pre {
+    border: 2px inset;
+    padding: 5px;
+}
+
+::-webkit-scrollbar {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAG0lEQVQYV2P8/////4MHDzIwHjhw4L+9vT0DAHAFCj6esq3FAAAAAElFTkSuQmCC) repeat;
+}
+
+::-webkit-scrollbar, ::-webkit-scrollbar-thumb, ::-webkit-scrollbar-button {
+    width: 13px;
+    height: 13px;
+}
+
+::-webkit-scrollbar-button {
+    background-color: rgb(192, 192, 192);
+    border-top: 1px solid rgb(192, 192, 192);
+    border-left: 1px solid rgb(192, 192, 192);
+    border-right: 1px solid rgb(0, 0, 0);
+    border-bottom: 1px solid rgb(0, 0, 0);
+    box-shadow: 1px 1px 0 rgb(255, 255, 255) inset, -1px -1px 0 rgb(128, 128, 128) inset;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAJCAYAAABaMo5wAAAAW0lEQVQ4T2NkGGSAcZC5h4FWDvrPwEC02ShqkR0EkkAHuBxMyEKYWYQ8jKEOXQOyo/A5BuZwqqvBZiA+3xMbilQLIWqlcUJRimwPzjRELcdQZA6hREeR4eRoBgBoXhAK6oiMhwAAAABJRU5ErkJggg==);
+    background-size: 40px 12px;
+    box-sizing: border-box;
+}
+
+/* up */
+::-webkit-scrollbar-button:single-button:vertical:decrement {
+    background-position: -9px 0;
+}
+
+/* down */
+::-webkit-scrollbar-button:single-button:vertical:increment {
+    background-position: 0;
+}
+
+/* left */
+::-webkit-scrollbar-button:single-button:horizontal:decrement {
+    background-position: -27px 0;
+}
+
+/* right */
+::-webkit-scrollbar-button:single-button:horizontal:increment {
+    background-position: -18px 0;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(192, 192, 192);
+    border-top: 1px solid rgb(192, 192, 192);
+    border-left: 1px solid rgb(192, 192, 192);
+    border-right: 1px solid rgb(0, 0, 0);
+    border-bottom: 1px solid rgb(0, 0, 0);
+    box-shadow: 1px 1px 0 rgb(255, 255, 255) inset, -1px -1px 0 rgb(128, 128, 128) inset;
+}
+
+::selection {
+    background-color: rgb(0, 0, 128);
+    color: rgb(255, 255, 255);
+}
+
+/*  移动端样式调整  */
+@media (max-width: 768px) { /* 当屏幕宽度小于 768px 时应用 */
+    .content {
+        flex-direction: column; /* 改为纵向排列 */
+    }
+
+    .content .panel,.content .app {
+        width: 95%;
+    }
+
+    .window#commentsWindow {
+        left: 15px;
+        top: 35%;
+        width: 90%;
+    }
+}
