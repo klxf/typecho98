@@ -1,7 +1,9 @@
 # Typecho98
 Typecho98 是一款 Windows 98 风格的 Typecho 的主题
 
-![screenshot](/screenshot.png)
+<p align=center>
+    <img alt="screenshot" src="/screenshot.png" width="50%"/>
+</p>
 
 ## 特性
 
