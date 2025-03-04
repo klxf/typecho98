@@ -89,19 +89,6 @@
     if (window.location.hash === '#comments') {
         toggleCommentWindow();
     }
-
-    // 愚人节彩蛋
-    if (!document.cookie.includes('hideTips=true')) {
-        document.getElementById("tipsWindow").style.display = 'block';
-        toggleActive(document.getElementById("tipsWindow"));
-    }
-    function closeTipsWindow(closeButton) {
-        const windowElement = closeButton.closest('.window');
-        if (windowElement) {
-            windowElement.style.display = 'none';
-            document.cookie = 'hideTips=true; expires=Fri, 31 Dec 9999 23:59:59 GMT';
-        }
-    }
 </script>
 <?php $this->footer(); ?>
 </body>
