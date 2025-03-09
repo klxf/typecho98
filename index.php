@@ -42,7 +42,7 @@ $this->need('header.php');
                                 <a href="<?php $this->permalink() ?>"><?php $this->title(); ?></a>
                             </div>
                             <div class="post-meta">
-                                <span><?php $this->author(); ?></span> 于 <time datetime="<?php $this->date('c'); ?>"><?php $this->date(); ?></time> <span class="split"></span> 共1条评论
+                                <span><?php $this->author(); ?></span> 于 <time datetime="<?php $this->date('c'); ?>"><?php $this->date(); ?></time> <span class="split"></span> 共<?php $this->commentsNum('%d'); ?>条评论
                             </div>
                             <div class="post-content">
                                 <p><?php $this->excerpt(); ?></p>

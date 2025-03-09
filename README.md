@@ -2,7 +2,7 @@
 Typecho98 是一款 Windows 98 风格的 Typecho 的主题
 
 <p align=center>
-    <img alt="screenshot" src="/screenshot.png" width="50%"/>
+    <img alt="screenshot" src="/screenshot.png" width="75%"/>
 </p>
 
 ## 特性
@@ -10,7 +10,7 @@ Typecho98 是一款 Windows 98 风格的 Typecho 的主题
 - ![windows](https://raw.githubusercontent.com/1j01/98/refs/heads/master/images/icons/windows-16x16-1bpp.png) 经典的 Windows 98 风格
 - ![task](https://raw.githubusercontent.com/1j01/98/master/images/icons/task-16x16.png) 可以拖动并记住位置的窗口
 - ![themes](https://raw.githubusercontent.com/1j01/98/refs/heads/master/images/icons/themes-16x16.png) 适配移动端
-- ![speaker](https://github.com/1j01/98/raw/master/images/icons/speaker-16x16.png) 以及...奇怪的点击音效
+- ![speaker](https://raw.githubusercontent.com/1j01/98/refs/heads/master/images/icons/speaker-16x16.png) 以及...奇怪的点击音效
 
 ## 安装
 
