@@ -26,6 +26,4 @@ $this->need('header.php');
     </div>
 </div>
 
-<?php $this->need('comments.php'); ?>
-
 <?php $this->need('footer.php'); ?>
