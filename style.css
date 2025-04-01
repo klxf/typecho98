@@ -309,6 +309,7 @@ img {
 }
 
 pre {
+    overflow-x: auto;
     border: 2px inset;
     padding: 5px;
 }
